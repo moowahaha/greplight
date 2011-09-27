@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require 'term/ansicolor'
+
+class String
+    include Term::ANSIColor
+end
+
+pattern = ARGV[0]
+
+STDIN.each do |line|
+  output = line =~ /#{pattern}/ ? line.red : line
+  puts output
+end
+
